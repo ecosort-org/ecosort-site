@@ -149,6 +149,13 @@ textarea {
   align-items: center;
 }
 
+.hero-logo {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: white;
+  margin-bottom: 10px;
+}
+
 .label {
   display: inline-block;
   padding: 0;
