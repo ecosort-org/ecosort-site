@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,10 +13,8 @@
   <!-- Font Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
 </head>
 
 <body>
@@ -34,6 +33,7 @@
       <a href="#home">Beranda</a>
       <a href="#search">Cari Sampah</a>
       <a href="#category">Kategori</a>
+      <a href="#quiz">Kuis</a>
       <a href="#report">Lapor</a>
     </nav>
   </header>
@@ -81,11 +81,7 @@
     </div>
 
     <div class="search-box">
-      <input
-        type="text"
-        id="searchInput"
-        placeholder="Contoh: botol plastik, baterai, kardus..."
-      />
+      <input type="text" id="searchInput" placeholder="Contoh: botol plastik, baterai, kardus..." />
 
       <button id="searchBtn">Cari</button>
     </div>
@@ -182,6 +178,40 @@
     </div>
   </section>
 
+  <!-- ================= QUIZ SECTION ================= -->
+  <section class="section soft" id="quiz">
+    <div class="section-heading">
+      <span class="label">Uji Pengetahuan</span>
+      <h2>Eco-Quiz: Seberapa Hebat Kamu Memilah?</h2>
+      <p>Ayo uji pengetahuanmu tentang pemilahan sampah dengan kuis singkat ini!</p>
+    </div>
+
+    <div class="quiz-container" id="quizContainer">
+      <div class="quiz-card">
+        <div id="quizContent">
+          <div class="quiz-progress" id="quizProgress">Pertanyaan 1 dari 5</div>
+          <h3 id="quizQuestion">Memuat pertanyaan...</h3>
+          <div class="quiz-options" id="quizOptions">
+            <!-- Pilihan jawaban muncul di sini -->
+          </div>
+        </div>
+
+        <div id="quizResult" class="quiz-result hidden">
+          <div class="result-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+              stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <h2>Kuis Selesai!</h2>
+          <p id="resultScore">Skor kamu: 0/0</p>
+          <p id="resultMessage">Luar biasa! Kamu sudah paham cara memilah sampah.</p>
+          <button class="btn primary" onclick="resetQuiz()">Coba Lagi</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= FOOTER ================= -->
   <footer class="footer">
     <div>
@@ -196,6 +226,7 @@
       <a href="#home">Beranda</a>
       <a href="#search">Cari Sampah</a>
       <a href="#category">Kategori</a>
+      <a href="#quiz">Kuis</a>
       <a href="#report">Lapor</a>
     </div>
 
@@ -207,4 +238,5 @@
   <!-- File JavaScript -->
   <script src="script.js"></script>
 </body>
+
 </html>

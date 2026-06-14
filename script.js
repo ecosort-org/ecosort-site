@@ -229,3 +229,119 @@ navLinks.forEach(function (link) {
     }
   });
 });
+
+
+/* ================= ECO-QUIZ LOGIC ================= */
+
+const quizData = [
+  {
+    question: "Manakah di bawah ini yang termasuk sampah organik?",
+    options: ["Botol Plastik", "Kulit Pisang", "Baterai", "Kardus"],
+    answer: 1
+  },
+  {
+    question: "Tempat sampah berwarna merah digunakan untuk kategori apa?",
+    options: ["Organik", "Kertas", "B3 (Bahan Berbahaya)", "Residu"],
+    answer: 2
+  },
+  {
+    question: "Kardus bekas kemasan paket sebaiknya dibuang ke tempat sampah warna?",
+    options: ["Hijau", "Kuning", "Biru", "Abu-abu"],
+    answer: 2
+  },
+  {
+    question: "Sampah manakah yang sulit didaur ulang dan masuk kategori residu?",
+    options: ["Majalah", "Tisu Kotor", "Kaleng Soda", "Gelas Kaca"],
+    answer: 1
+  },
+  {
+    question: "Apa yang harus dilakukan sebelum membuang botol plastik?",
+    options: ["Langsung dibuang", "Diisi air penuh", "Dikosongkan dan diringkas", "Dibakar"],
+    answer: 2
+  }
+];
+
+const iconCorrect = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+const iconWrong = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`;
+
+let currentQuestionIndex = 0;
+let score = 0;
+
+const quizQuestionEl = document.getElementById("quizQuestion");
+const quizOptionsEl = document.getElementById("quizOptions");
+const quizProgressEl = document.getElementById("quizProgress");
+const quizContentEl = document.getElementById("quizContent");
+const quizResultEl = document.getElementById("quizResult");
+const resultScoreEl = document.getElementById("resultScore");
+const resultMessageEl = document.getElementById("resultMessage");
+
+function loadQuestion() {
+  const currentQuiz = quizData[currentQuestionIndex];
+  
+  quizProgressEl.innerText = `Pertanyaan ${currentQuestionIndex + 1} dari ${quizData.length}`;
+  quizQuestionEl.innerText = currentQuiz.question;
+  quizOptionsEl.innerHTML = "";
+
+  currentQuiz.options.forEach((option, index) => {
+    const button = document.createElement("button");
+    button.innerHTML = `<span>${option}</span>`;
+    button.classList.add("option-btn");
+    button.onclick = () => checkAnswer(index);
+    quizOptionsEl.appendChild(button);
+  });
+}
+
+function checkAnswer(selectedIndex) {
+  const correctIndex = quizData[currentQuestionIndex].answer;
+  const options = quizOptionsEl.querySelectorAll(".option-btn");
+
+  // Disable all buttons after choice
+  options.forEach(btn => btn.disabled = true);
+
+  if (selectedIndex === correctIndex) {
+    score++;
+    options[selectedIndex].classList.add("correct");
+    options[selectedIndex].innerHTML += iconCorrect;
+  } else {
+    options[selectedIndex].classList.add("wrong");
+    options[selectedIndex].innerHTML += iconWrong;
+    options[correctIndex].classList.add("correct");
+    options[correctIndex].innerHTML += iconCorrect;
+  }
+
+  // Next question after short delay
+  setTimeout(() => {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < quizData.length) {
+      loadQuestion();
+    } else {
+      showResult();
+    }
+  }, 1200);
+}
+
+function showResult() {
+  quizContentEl.classList.add("hidden");
+  quizResultEl.classList.remove("hidden");
+  
+  resultScoreEl.innerText = `Skor kamu: ${score} / ${quizData.length}`;
+  
+  if (score === quizData.length) {
+    resultMessageEl.innerText = "Luar biasa! Kamu adalah Master Pemilah Sampah!";
+  } else if (score >= 3) {
+    resultMessageEl.innerText = "Bagus! Kamu sudah cukup paham cara memilah sampah.";
+  } else {
+    resultMessageEl.innerText = "Jangan menyerah! Ayo baca lagi panduan di atas dan coba lagi.";
+  }
+}
+
+function resetQuiz() {
+  currentQuestionIndex = 0;
+  score = 0;
+  quizContentEl.classList.remove("hidden");
+  quizResultEl.classList.add("hidden");
+  loadQuestion();
+}
+
+// Start quiz on load
+loadQuestion();
