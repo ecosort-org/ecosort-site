@@ -284,7 +284,12 @@ function loadQuestion() {
 
   currentQuiz.options.forEach((option, index) => {
     const button = document.createElement("button");
-    button.innerHTML = `<span>${option}</span>`;
+    button.innerHTML = `
+      <div class="option-content">
+        <span class="option-number">${index + 1}</span>
+        <span>${option}</span>
+      </div>
+    `;
     button.classList.add("option-btn");
     button.onclick = () => checkAnswer(index);
     quizOptionsEl.appendChild(button);

@@ -297,7 +297,7 @@ textarea {
 }
 
 .option-btn {
-  padding: 18px 24px;
+  padding: 18px 18px;
   background: #f9fbf5;
   border: 1px solid var(--border);
   border-radius: 18px;
@@ -320,6 +320,30 @@ textarea {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.option-content {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.option-number {
+  width: 28px;
+  height: 28px;
+  color: var(--green-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 900;
+  transition: 0.25s ease;
+}
+
+.option-btn:hover .option-number {
+  background: var(--green-dark);
+  color: white;
 }
 
 .option-btn svg {
