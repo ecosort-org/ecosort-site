@@ -161,22 +161,22 @@ function searchWaste() {
 
       <div class="result-info">
         <div class="info-box">
-          <strong>Kategori Sampah</strong>
+          <strong>🏷️ Kategori Sampah</strong>
           <p>${foundWaste.category}</p>
         </div>
 
         <div class="info-box">
-          <strong>Warna Tempat Sampah</strong>
+          <strong>🎨 Warna Tempat Sampah</strong>
           <p>${foundWaste.binColor}</p>
         </div>
 
         <div class="info-box">
-          <strong>Cara Pengelolaan</strong>
+          <strong>⚙️ Cara Pengelolaan</strong>
           <p>${foundWaste.treatment}</p>
         </div>
 
         <div class="info-box">
-          <strong>Tips</strong>
+          <strong>✨ Tips</strong>
           <p>${foundWaste.tip}</p>
         </div>
       </div>
