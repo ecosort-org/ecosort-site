@@ -366,11 +366,10 @@ textarea {
 
 .quiz-result {
   text-align: center;
-  padding: 50px;
-  background: var(--white);
-  border-radius: 32px;
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .quiz-result.hidden {
