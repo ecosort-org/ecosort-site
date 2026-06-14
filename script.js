@@ -377,3 +377,24 @@ function resetReportForm() {
   reportForm.classList.remove("hidden");
   reportSuccess.classList.add("hidden");
 }
+
+
+/* ================= SCROLL REVEAL ANIMATION ================= */
+
+const revealElements = document.querySelectorAll(".reveal");
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("active");
+      // Optional: stop observing after reveal
+      // revealObserver.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.15 // Trigger when 15% of the element is visible
+});
+
+revealElements.forEach((el) => {
+  revealObserver.observe(el);
+});
