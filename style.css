@@ -40,7 +40,7 @@ html {
 
 body {
   font-family: "Inter", sans-serif;
-  background: var(--bg);
+  background-color: var(--bg);
   color: var(--text);
   line-height: 1.6;
 }
@@ -442,15 +442,16 @@ textarea {
 
 /* ================= SECTION UMUM ================= */
 .section {
+  background-image: url("data:image/svg+xml,%3Csvg width='1000' height='1000' viewBox='0 0 1000 1000' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M-100 300 C 100 100 400 500 600 300 S 900 100 1100 300' stroke='rgba(23, 63, 47, 0.08)' stroke-width='2' stroke-dasharray='20 15' fill='none' /%3E%3Cpath d='M-100 700 C 100 500 400 900 600 700 S 900 500 1100 700' stroke='rgba(23, 63, 47, 0.08)' stroke-width='2' stroke-dasharray='20 15' fill='none' /%3E%3Cpath d='M300 -100 C 100 100 500 400 300 600 S 100 900 300 1100' stroke='rgba(23, 63, 47, 0.08)' stroke-width='2' stroke-dasharray='20 15' fill='none' /%3E%3Cpath d='M700 -100 C 500 100 900 400 700 600 S 500 900 700 1100' stroke='rgba(23, 63, 47, 0.08)' stroke-width='2' stroke-dasharray='20 15' fill='none' /%3E%3C/svg%3E");
   padding: 86px 7%;
 }
 
 .section.soft {
-  background: var(--green-soft);
+  background-color: var(--green-soft);
 }
 
 #search {
-  background: var(--white);
+  background-color: var(--white);
 }
 
 .section-heading {
