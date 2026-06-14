@@ -600,30 +600,81 @@ textarea {
 }
 
 .category-card {
-  min-height: 190px;
-  padding: 24px;
+  min-height: 240px;
+  padding: 32px;
 
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 26px;
+  border: 2px solid var(--green-soft);
+  border-radius: 28px;
   box-shadow: 0 14px 40px rgba(23, 63, 47, 0.08);
 
-  transition: 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  color: white;
+
+  transition: 0.3s ease;
+}
+
+.category-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.85));
+  z-index: 1;
+}
+
+.category-card h3, 
+.category-card p, 
+.category-card small {
+  position: relative;
+  z-index: 2;
 }
 
 .category-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow);
+  border: 2px solid var(--green-dark);
+  box-shadow: none;
+}
+
+.category-card.green {
+  background-image: url("assets/sampah-organik.jpg");
+}
+
+.category-card.yellow {
+  background-image: url("assets/sampah-plastik.jpg");
+}
+
+.category-card.blue {
+  background-image: url("assets/sampah-kertas.webp");
+}
+
+.category-card.red {
+  background-image: url("assets/sampah-b3.jpg");
+}
+
+.category-card.grey {
+  background-image: url("assets/sampah-residu.jpg");
+}
+
+.category-card.purple {
+  background-image: url("assets/sampah-elektronik.jpg");
 }
 
 .category-card h3 {
-  font-size: 1.5rem;
-  color: var(--green-dark);
+  font-size: 1.6rem;
+  color: white;
 }
 
 .category-card p {
-  margin-top: 12px;
-  color: var(--muted);
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
 }
 
 .category-card small {
@@ -632,31 +683,32 @@ textarea {
   font-weight: 800;
   padding: 4px 12px;
   border-radius: 6px;
-  color: var(--green-dark);
+  color: white;
+  width: fit-content;
 }
 
 .category-card.green small {
-  background: #e5f3df;
+  background: rgba(34, 122, 61, 0.8);
 }
 
 .category-card.yellow small {
-  background: #fff9e6;
+  background: rgba(160, 117, 0, 0.8);
 }
 
 .category-card.blue small {
-  background: #e6f2ff;
+  background: rgba(27, 98, 163, 0.8);
 }
 
 .category-card.red small {
-  background: #ffe6e6;
+  background: rgba(163, 38, 38, 0.8);
 }
 
 .category-card.grey small {
-  background: #eeeeee;
+  background: rgba(85, 85, 85, 0.8);
 }
 
 .category-card.purple small {
-  background: #f2e6ff;
+  background: rgba(107, 59, 181, 0.8);
 }
 
 /* ================= REPORT SECTION ================= */
