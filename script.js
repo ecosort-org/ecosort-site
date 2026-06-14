@@ -350,3 +350,30 @@ function resetQuiz() {
 
 // Start quiz on load
 loadQuestion();
+
+
+/* ================= REPORT FORM LOGIC ================= */
+
+const reportForm = document.getElementById("reportForm");
+const reportSuccess = document.getElementById("reportSuccess");
+
+if (reportForm) {
+  reportForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    // Simulasi pengiriman data
+    reportForm.classList.add("hidden");
+    reportSuccess.classList.remove("hidden");
+
+    // Scroll ke atas card agar notifikasi terlihat jelas
+    document.getElementById("report").scrollIntoView({
+      behavior: "smooth"
+    });
+  });
+}
+
+function resetReportForm() {
+  reportForm.reset();
+  reportForm.classList.remove("hidden");
+  reportSuccess.classList.add("hidden");
+}

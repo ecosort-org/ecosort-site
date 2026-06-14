@@ -154,27 +154,42 @@
         </p>
       </div>
 
-      <form class="report-form">
-        <input type="text" placeholder="Nama pelapor" />
-        <input type="text" placeholder="Lokasi sampah" />
+      <div class="report-card">
+        <form class="report-form" id="reportForm">
+          <input type="text" placeholder="Nama pelapor" required />
+          <input type="text" placeholder="Lokasi sampah" required />
 
-        <select>
-          <option value="">Pilih jenis sampah</option>
-          <option>Organik</option>
-          <option>Plastik</option>
-          <option>Kertas</option>
-          <option>B3</option>
-          <option>Residu</option>
-          <option>Elektronik</option>
-          <option>Campuran</option>
-        </select>
+          <select required>
+            <option value="">Pilih jenis sampah</option>
+            <option>Organik</option>
+            <option>Plastik</option>
+            <option>Kertas</option>
+            <option>B3</option>
+            <option>Residu</option>
+            <option>Elektronik</option>
+            <option>Campuran</option>
+          </select>
 
-        <textarea placeholder="Deskripsikan masalah sampah secara singkat"></textarea>
+          <textarea placeholder="Deskripsikan masalah sampah secara singkat" required></textarea>
 
-        <button type="button" class="btn primary full">
-          Kirim Laporan
-        </button>
-      </form>
+          <button type="submit" class="btn primary full">
+            Kirim Laporan
+          </button>
+        </form>
+
+        <div id="reportSuccess" class="report-success hidden">
+          <div class="success-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+              stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <h3>Laporan Terkirim!</h3>
+          <p>Terima kasih atas laporan Anda. Kami akan segera menindaklanjuti informasi ini untuk lingkungan yang lebih
+            bersih.</p>
+          <button class="btn secondary" onclick="resetReportForm()">Kirim Laporan Lain</button>
+        </div>
+      </div>
     </div>
   </section>
 
