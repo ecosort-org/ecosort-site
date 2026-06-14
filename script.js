@@ -196,6 +196,17 @@ searchInput.addEventListener("keydown", function (event) {
 });
 
 
+/* ================= MENU RESPONSIVE (HAMBURGER) ================= */
+
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.getElementById("navMenu");
+
+menuToggle.addEventListener("click", function () {
+  menuToggle.classList.toggle("active");
+  navMenu.classList.toggle("active");
+});
+
+
 /* ================= SMOOTH SCROLL NAVBAR ================= */
 
 const navLinks = document.querySelectorAll('a[href^="#"]');
@@ -203,6 +214,10 @@ const navLinks = document.querySelectorAll('a[href^="#"]');
 navLinks.forEach(function (link) {
   link.addEventListener("click", function (event) {
     event.preventDefault();
+
+    // Tutup menu jika sedang di mode mobile
+    menuToggle.classList.remove("active");
+    navMenu.classList.remove("active");
 
     const targetId = link.getAttribute("href");
     const targetSection = document.querySelector(targetId);

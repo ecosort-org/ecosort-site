@@ -90,6 +90,40 @@ textarea {
   color: var(--green-dark);
 }
 
+/* ================= MENU TOGGLE ================= */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 101;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: var(--green-dark);
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+
+/* Animasi Hamburger ke X */
+.menu-toggle.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
 /* ================= HERO SECTION ================= */
 .hero {
   min-height: calc(100vh - 74px);
@@ -194,8 +228,10 @@ textarea {
 
   border-radius: 34px;
   background:
-    linear-gradient(135deg, rgba(23, 63, 47, 0.95), rgba(36, 92, 67, 0.92)),
-    radial-gradient(circle at top right, rgba(184, 243, 109, 0.45), transparent 40%);
+    linear-gradient(rgba(23, 63, 47, 0.75), rgba(23, 63, 47, 0.75)),
+    url("assets/disposal.jpg");
+  background-size: cover;
+  background-position: center;
   color: white;
   box-shadow: var(--shadow);
 
@@ -228,6 +264,10 @@ textarea {
   background: var(--green-soft);
 }
 
+#search {
+  background: var(--white);
+}
+
 .section-heading {
   max-width: 720px;
   margin: 0 auto 34px;
@@ -258,6 +298,7 @@ textarea {
   border-radius: 999px;
   padding: 10px;
   box-shadow: var(--shadow);
+  min-height: 66px;
 
   display: flex;
   gap: 10px;
@@ -270,8 +311,8 @@ textarea {
   outline: 0;
   background: transparent;
 
-  padding: 0 18px;
-  font-size: 1rem;
+  padding: 0 22px;
+  font-size: 1.05rem;
   color: var(--text);
 }
 
@@ -282,7 +323,7 @@ textarea {
   background: var(--green-dark);
   color: white;
 
-  padding: 0 28px;
+  padding: 0 22px;
   font-weight: 900;
   cursor: pointer;
 
@@ -415,30 +456,33 @@ textarea {
   display: inline-block;
   margin-top: 18px;
   font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 6px;
+  color: var(--green-dark);
 }
 
 .category-card.green small {
-  color: #227a3d;
+  background: #e5f3df;
 }
 
 .category-card.yellow small {
-  color: #a07500;
+  background: #fff9e6;
 }
 
 .category-card.blue small {
-  color: #1b62a3;
+  background: #e6f2ff;
 }
 
 .category-card.red small {
-  color: #a32626;
+  background: #ffe6e6;
 }
 
 .category-card.grey small {
-  color: #555555;
+  background: #eeeeee;
 }
 
 .category-card.purple small {
-  color: #6b3bb5;
+  background: #f2e6ff;
 }
 
 /* ================= REPORT SECTION ================= */
@@ -559,21 +603,39 @@ textarea {
 
 @media (max-width: 680px) {
   .navbar {
-    height: auto;
-    padding: 18px 6%;
+    height: 74px;
+    padding: 0 6%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-    align-items: flex-start;
-    gap: 16px;
-    flex-direction: column;
+  .menu-toggle {
+    display: flex;
   }
 
   .nav-menu {
+    position: fixed;
+    top: 74px;
+    left: -100%;
     width: 100%;
-    flex-wrap: wrap;
+    height: calc(100vh - 74px);
+    background: var(--bg);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    transition: 0.4s ease;
+    z-index: 100;
+  }
+
+  .nav-menu.active {
+    left: 0;
   }
 
   .nav-menu a {
-    padding: 8px 12px;
+    font-size: 1.2rem;
+    padding: 12px 24px;
   }
 
   .hero,
